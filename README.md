@@ -3,4 +3,8 @@ Repository for final lesson before mid term of computer graphic course
 
 Name : Reynaldi Aulia Sabri (1313623043)
 
+Public link of my AI Query :
+https://www.perplexity.ai/search/jelaskan-tugas-yang-harus-saya-0QuekuEwQlaXXOjHypqYpA?0=d#0
+
+https://gemini.google.com/share/03c6e66a41ed
 
