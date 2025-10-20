@@ -136,7 +136,7 @@ void DrawingCanvas::paintEvent(QPaintEvent *event){
         pen.setColor(Qt::blue);
         painter.setPen(pen);
     }
-    pen.setColor(QColor("#8A2BE2"));
+    pen.setColor(QColor(128, 0, 128));
     pen.setWidth(1); // Kotak tipis
     painter.setPen(pen);
     painter.setBrush(Qt::NoBrush); // Hanya outline kotak, tidak diisi
