@@ -14,20 +14,20 @@ public:
 
     //alternate way to instantiate the class
     CustomMatrix(bool m[3][3]){
-        const int m_size = sizeof(m) / sizeof(m[0]);
-        for (int i=0;i< m_size;i++) {
-            for(int j=0; j < sizeof(m[0]);j++){
-                //cout << i << " " << j << endl;
+        // BUGFIX: Ganti 'm_size' dengan '3'
+        for (int i=0; i < 3; i++) {
+            // BUGFIX: Ganti 'sizeof(m[0])' dengan '3'
+            for(int j=0; j < 3; j++){
                 mat[i][j] = m[i][j];
             }
         }
     }
 
     void fillMatrix(bool m[3][3]){
-        const int m_size = sizeof(m) / sizeof(m[0]);
-        for (int i=0;i< m_size;i++) {
-            for(int j=0; j < sizeof(m[0]);j++){
-                //cout << i << " " << j << endl;
+        // BUGFIX: Ganti 'm_size' dengan '3'
+        for (int i=0; i < 3; i++) {
+            // BUGFIX: Ganti 'sizeof(m[0])' dengan '3'
+            for(int j=0; j < 3; j++){
                 mat[i][j] = m[i][j];
             }
         }

@@ -54,6 +54,7 @@ void DrawingCanvas::paintLines(){
 }
 
 void DrawingCanvas::segmentDetection(){
+    m_detectedCandidates.clear();
     QPixmap pixmap = this->grab(); //
     QImage image = pixmap.toImage();
 
@@ -61,12 +62,12 @@ void DrawingCanvas::segmentDetection(){
     cout << "image height " << image.height() << endl;
 
     //To not crash we set initial size of the matrix
-    vector<CustomMatrix> windows(image.width()*image.height());
+
 
     // Get the pixel value as an ARGB integer (QRgb is a typedef for unsigned int)
     for(int i = 1; i < image.width()-1;i++){
         for(int j = 1; j < image.height()-1;j++){
-            bool local_window[3][3] = {false};
+            Array3x3 local_window;
             bool isEmpty = true;
 
             for(int m=-1;m<=1;m++){
@@ -87,14 +88,18 @@ void DrawingCanvas::segmentDetection(){
                     cout << endl;
                 }
                 cout << "         " << endl;
+                for (const auto& pattern : m_idealPatterns) {
+                    if (local_window == pattern) {
+                        // Jika cocok, simpan titik tengah (i, j) sebagai kandidat
+                        m_detectedCandidates.push_back(QPoint(i, j));
+                        break; // Pola ditemukan, lanjut ke piksel berikutnya
+                    }
+                }
             }
-
-            CustomMatrix mat(local_window);
-
-            windows.push_back(mat);
         }
     }
-    return;
+    update();
+
 }
 
 void DrawingCanvas::paintEvent(QPaintEvent *event){
