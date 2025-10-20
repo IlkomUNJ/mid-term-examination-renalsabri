@@ -20,7 +20,9 @@
                 cout << "         " << endl;
             } 
             
-2. For the second objective (3rd) we were given a task where our algorithm run automatically when we moved our cursor through the window and detect if theres object in the segment where our algorithm is implemented by marking it with small purple rectangle  
+2. For the second objective (3rd) we were given a task where our algorithm run automatically when we moved our cursor through the window and detect if theres object in the segment where our algorithm is implemented by marking it with small purple rectangle 
+
+untuk nomor ini sebagian besar saya mengikuti AI karena saya hanya memahami kalau kita diminta untuk menambahkan variable serta pola deteksi (3x3) yang kita buat di problem sebelumnya git
 
 
 

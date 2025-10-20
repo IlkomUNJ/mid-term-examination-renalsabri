@@ -1,15 +1,46 @@
 #include "drawingcanvas.h"
 
+
+void DrawingCanvas::initializeIdealPatterns() {
+    // Pola Garis Horizontal
+    m_idealPatterns.push_back({{
+        {{false, false, false}},
+        {{true,  true,  true}},
+        {{false, false, false}}
+    }});
+    // Pola Garis Vertikal
+    m_idealPatterns.push_back({{
+        {{false, true, false}},
+        {{false, true, false}},
+        {{false, true, false}}
+    }});
+    // Pola Garis Diagonal (kanan-bawah)
+    m_idealPatterns.push_back({{
+        {{true,  false, false}},
+        {{false, true,  false}},
+        {{false, false, true}}
+    }});
+    // Pola Garis Diagonal (kiri-bawah)
+    m_idealPatterns.push_back({{
+        {{false, false, true}},
+        {{false, true,  false}},
+        {{true,  false, false}}
+    }});
+
+}
+
 DrawingCanvas::DrawingCanvas(QWidget *parent)  {
     // Set a minimum size for the canvas
     setMinimumSize(this->WINDOW_WIDTH, this->WINDOW_HEIGHT);
     // Set a solid background color
     setStyleSheet("background-color: white; border: 1px solid gray;");
+    initializeIdealPatterns();
 }
 
 void DrawingCanvas::clearPoints(){
     m_points.clear();
     // Trigger a repaint to clear the canvas
+    m_detectedCandidates.clear();
     update();
 }
 
@@ -99,6 +130,16 @@ void DrawingCanvas::paintEvent(QPaintEvent *event){
         //return painter pen to blue
         pen.setColor(Qt::blue);
         painter.setPen(pen);
+    }
+    pen.setColor(QColor("#8A2BE2"));
+    pen.setWidth(1); // Kotak tipis
+    painter.setPen(pen);
+    painter.setBrush(Qt::NoBrush); // Hanya outline kotak, tidak diisi
+
+    for (const QPoint& center : std::as_const(m_detectedCandidates)) {
+        // 'center' adalah (i, j). Kita gambar kotak 3x3 di sekitarnya.
+        // QRect(topLeftX, topLeftY, width, height)
+        painter.drawRect(center.x() - 1, center.y() - 1, 3, 3);
     }
 }
 

@@ -42,5 +42,9 @@ private:
     QVector<QPoint> m_points;
 
     bool isPaintLinesClicked = false;
+    std::vector<Array3x3> m_idealPatterns;
+    QVector<QPoint> m_detectedCandidates;
+
+    void initializeIdealPatterns();
 };
 #endif // DRAWINGCANVAS_H
