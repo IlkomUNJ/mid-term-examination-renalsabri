@@ -49,6 +49,13 @@ void DrawingCanvas::segmentDetection(){
             }
             if (!isEmpty) {
                 cout << "Object at (" << i << ", " << j << ")" << endl;
+                for (int m = 0; m < 3; ++m) {
+                    for (int n = 0; n < 3; ++n) {
+                        cout << (local_window[m][n] ? "1" : "0") << " ";
+                    }
+                    cout << endl;
+                }
+                cout << "         " << endl;
             }
 
             CustomMatrix mat(local_window);
