@@ -36,12 +36,19 @@ void DrawingCanvas::segmentDetection(){
     for(int i = 1; i < image.width()-1;i++){
         for(int j = 1; j < image.height()-1;j++){
             bool local_window[3][3] = {false};
+            bool isEmpty = true;
 
             for(int m=-1;m<=1;m++){
                 for(int n=-1;n<=1;n++){
                     QRgb rgbValue = image.pixel(i+m, j+n);
                     local_window[m+1][n+1] = (rgbValue != 0xffffffff);
+                    if (local_window[m+1][n+1]){
+                        isEmpty = false;
+                    }
                 }
+            }
+            if (!isEmpty) {
+                cout << "Object at (" << i << ", " << j << ")" << endl;
             }
 
             CustomMatrix mat(local_window);
