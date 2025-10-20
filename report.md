@@ -26,3 +26,5 @@
 
 the AI REFERENCE :
 https://www.perplexity.ai/search/jelaskan-tugas-yang-harus-saya-0QuekuEwQlaXXOjHypqYpA?0=d#0
+
+https://gemini.google.com/share/03c6e66a41ed
